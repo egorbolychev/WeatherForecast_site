@@ -1,0 +1,16 @@
+{% extends 'weatherforecast/base.html' %}
+{% block content %}
+
+<div class="container">
+    <h2  class="mb-3">Города</h2>
+    <div class="row">
+        {% for city in cities %}
+        <div class="mb-1 col-3">
+            <ul class="list-group">
+                <li class="d-flex justify-content-between align-items-center"><a class="nav-link" href="{{ city.get_absolute_url }}">{{ city }}</a></li>
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

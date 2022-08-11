@@ -1,0 +1,23 @@
+{% extends 'weatherforecast/base.html' %}
+{% block content %}
+
+<div class="container">
+    <h2  class="mb-3">Регионы</h2>
+    <div class="row">
+        {% for letter in abc %}
+        <div class="mb-3 col-4">
+        <div class="">
+        <h3>{{ letter }}</h3>
+        </div>
+            <ul class="list-group">
+            {% for reg in regions %}
+                {% if reg.regName.0 == letter %}
+                <li class="d-flex justify-content-between align-items-center"><a class="nav-link" href="{{ reg.get_absolute_url }}">{{ reg }}</a></li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+         </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

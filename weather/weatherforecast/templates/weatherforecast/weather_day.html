@@ -1,0 +1,90 @@
+{% extends 'weatherforecast/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container py-4" style="margin-top: 7%">
+     <div class="row align-items-md-stretch">
+
+      <div class="col-md-8">
+        <div style="background-color: #f5f5f5; box-shadow: 0px 0px 5px 0px rgb(169, 169, 169);" class="h-100 p-5 border rounded-3">
+
+          <h4 class="mb-1">{{ city }}</h4>
+          <p class="mb-3 text-secondary">{{ weather.0.date }}</p>
+
+          <div style="margin-left: 10%" class="row align-items-md-stretch">
+              <div style="text-align: center; margin-right: 4%; margin-left: -10%">
+                    <img style="margin: 0 auto 400% auto;" width="30px" src="{% static 'weatherforecast/images/часы.png' %}">
+                    <p></p>
+                    <img style="margin: 0 auto 0% auto;" width="30px" src="{% static 'weatherforecast/images/температура.png' %}">
+                    <p></p>
+                    <img style="margin: 0 auto;" width="30px" src="{% static 'weatherforecast/images/капля.png' %}">
+                    <p></p>
+                    <img style="margin: 0 auto;" width="30px" src="{% static 'weatherforecast/images/ветер.png' %}">
+                </div>
+          {% for cnt in weather %}
+                <div style="text-align: center; margin-right: 2%">
+                    <h4 class="lead"><b>{{ cnt.time }}</b></h4>
+                    <img style="margin: 60% auto;" width="60px" src="{% static cnt.ico %}">
+                    <h4 class="lead mb-4"><b>{{ cnt.temp }}°С</b></h4>
+                    <h4 class="lead mb-4">{{ cnt.humidity }}%</h4>
+                    <h4 class="lead mb-4">{{ cnt.wind }} м/с</h4>
+                </div>
+          {% endfor %}
+
+          </div>
+        <img style="margin: 0 auto;" width="90%" src="{% static 'weatherforecast/images/ящерица.png' %}">
+        </div>
+      </div>
+
+      <div class="col-md-4">
+
+        {% for day in three_day_weather %}
+        {% if day.day_num == day_num %}
+        <div style="box-shadow: 0px 0px 5px 0px rgb(169, 169, 169); height: 31.5%" class="mb-3 p-4 border rounded-3">
+            <div class="row">
+                <div class="col-6">
+                    <h6>{{ day.date }}</h6>
+                </div>
+                <div class="col-6">
+                    <img style="margin-left: 40%" width="100px" src="{% static day.ico %}">
+                </div>
+            </div>
+            <div class="row">
+                <div style="margin-top: -10%" class="ml-4 col-2">
+                    <h3 class="">{{ day.temp_day }}°С</h3>
+                </div>
+                <div class="col-1 mt-2 ml-3">
+                    <h5 style="color: gray">{{ day.temp_night }}°С</h5>
+                </div>
+            </div>
+        </div>
+        {% else %}
+         <a style="text-decoration: none; color: black" href="{%  url 'day_weather' city.slug day.day_num %}">
+         <div style="box-shadow: 0px 0px 5px 0px rgb(169, 169, 169);" class="three-weather-blocks mb-3 p-4  border rounded-3">
+            <div class="row">
+                <div class="col-6">
+                    <h6>{{ day.date }}</h6>
+                </div>
+                <div class="col-6">
+                    <img style="margin-left: 40%" width="100px" src="{% static day.ico %}">
+                </div>
+            </div>
+            <div class="row">
+                <div style="margin-top: -10%" class="ml-4 col-2">
+                    <h3 class="">{{ day.temp_day }}°С</h3>
+                </div>
+                <div class="col-1 mt-2 ml-3">
+                    <h5 style="color: gray">{{ day.temp_night }}°С</h5>
+                </div>
+            </div>
+        </div>
+        </a>
+        {% endif %}
+        {% endfor %}
+      </div>
+
+
+    </div>
+
+    </div>
+
+{% endblock %}

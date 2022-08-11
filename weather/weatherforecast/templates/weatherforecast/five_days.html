@@ -1,0 +1,15 @@
+{% extends 'weatherforecast/base.html' %}
+{% block content %}
+<div class="container py-4" style="margin-top: 4%">
+    <h1 class="mb-4">{{ city }}</h1>
+    {% for day in weather %}
+        <h5>{{ day.0.date }}</h5>
+        {% for cnt in day %}
+        <ul>
+            <li>{{ cnt.time }}</li>
+        </ul>
+        {% endfor %}
+    {% endfor %}
+
+</div>
+{% endblock %}

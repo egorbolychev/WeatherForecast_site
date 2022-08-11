@@ -1,0 +1,106 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.three-weather-blocks {
+    background-color: #f5f5f5;
+    height: 31.5%
+}
+
+.three-weather-blocks:hover {
+    background-color: rgb(220, 220, 220);
+}
+
+.cur-next-days-div {
+    height: auto;
+    background-color: rgb(245, 245, 245);
+    border: 1px solid rgb(169, 169, 169);
+    margin-right: 3px
+}
+
+.cur-next-days-div:hover {
+    background-color: rgb(211, 211, 211);
+
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.segment {
+    background-image: url('../images/отрезок.png');
+    background-size: 140% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 0
+}
+
+div.now {
+ background-repeat: no-repeat;
+ background-position: center;
+ text-align: center;
+}
+
+.inner {
+  margin: 0 auto;
+}
+
+body {
+  margin-bottom: 60px;
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+}
+
+.menu-align {
+    position: absolute;
+}
+
+.ul-margin:{
+    border: 2px solid black;
+    margin-bottom: 10px;
+}
+
+a.list {
+    margin-left: 0;
+}
+
+header {
+    margin-bottom: 2%
+}
+
+.li_reg {
+  float: right;
+}
+
+.menu-text {
+    font-size: larger;
+}
+
+footer {
+
+     top: 90%
+}
+
+.menu-text-border {
+    border-right: 1px solid white;
+    height: 40px;
+    padding: 5px 0 5px 0;
+}
+
+form.menu-align {
+ right: 20%
+}
+
+div.menu-align {
+ right: 8%
+}
+
+.logo {
+    padding-right: 3%
+
+}
+
+.weather_day_container {
+
+}
